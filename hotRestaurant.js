@@ -3,7 +3,15 @@ const express = require("express");
 const app = express();
 const PORT = 3000;
 
-let reservations = [];
+let reservations = [
+    {
+        rezname: "Randy",
+        name: "Randy",
+        phone: 123455678,
+        email: "Randy@Savage.edu",
+        id: 2000
+      },
+];
 
 let waitingList = [];
 
@@ -25,6 +33,9 @@ app.get("/tables", function (req, res) {
 app.get("/api/reservations", function (req, res) {
     res.send("Here is the api data");
 });
+
+// Create New Rez - takes in JSON input
+app.post("/api/makereservation", function(req, res) {
 
 app.listen(PORT, function () {
     console.log("App listening on PORT " + PORT);
